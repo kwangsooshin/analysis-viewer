@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import Modules, EngtoKor_list
 
-# Register your models here.
+
+admin.site.register(Modules)
+admin.site.register(EngtoKor_list)
