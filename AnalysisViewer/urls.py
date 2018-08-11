@@ -18,7 +18,7 @@ from django.conf.urls import include, url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'', include('WebViewer.urls')),
-    # url(r'', include('Module_Manager.urls')),
+    url(r'', include('WebViewer.urls')),
+    # url(r'^modules/', include('Module_Manager.urls')),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]

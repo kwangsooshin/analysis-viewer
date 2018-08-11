@@ -1,0 +1,34 @@
+{% extends "app/base.html" %}
+{% load staticfiles %}
+
+{% block head %}
+    <title >Image Demo</title>
+    <script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
+    <script src="{% static "js/jquery-ui.min.js" %}"></script>
+    <script src="{% static "js/d3.min.js" %}"></script>
+    <script src="{% static "js/bootstrap-3.3.7.min.js" %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600i" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% endblock %}
+
+{% block nav %}
+    <div id="page-heading" class="jumbotron">
+        <div id="heading-text" class="container">
+            <a href="/"><h1>Image Demo</h1></a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="upload_contents"></div>
+
+    <script src="{% static "js/demo/layout.js" %}"></script>
+    <script src="{% static "js/demo/upload_menu.js" %}"></script>
+    <script src="{% static "js/demo/update.js" %}"></script>
+{% endblock %}

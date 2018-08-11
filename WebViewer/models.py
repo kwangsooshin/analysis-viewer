@@ -11,13 +11,14 @@ class ImageModel(models.Model):
     test = models.TextField(blank=True)
     # uploaded_date = models.DateTimeField(auto_now_add=True)
     # updated_date = models.DateTimeField(auto_now=True)
+    checkbox = models.CharField(default="", max_length=100)
 
     class Meta:
         db_table = "ImageModel"
 
     def save(self, *args, **kwargs):
         super(ImageModel, self).save(*args, **kwargs)
-        self.test = str(tasks.communicatior("http://210.217.95.183:8000/analyzer/", self.image.path,
+        self.test = str(tasks.communicatior("http://mlcoconut.sogang.ac.kr:8000/analyzer/", self.image.path,
                                             modules=str(self.chosen_module))) # 수정하기
         super(ImageModel, self).save()
 
