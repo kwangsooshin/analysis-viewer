@@ -1,0 +1,221 @@
+0,abbey,수도원
+1,airport_terminal,공항
+2,alley,골목
+3,amphitheater,원형극장
+4,amusement_park,놀이공원
+5,apartment_building_outdoor,아파트 외부
+6,aquarium,아쿠아리움
+7,aqueduct,송수로
+8,arch,아치형 구조물
+9,art_gallery,미술관
+10,art_studio,화방
+11,assembly_line,생산공장
+12,attic,다락방
+13,auditorium,강당
+14,badlands,불모지
+15,bakery_shop,빵가게
+16,ballroom,무도회장
+17,bamboo_forest,대나무숲
+18,banquet_hall,연회장
+19,bar,바
+20,baseball_field,농구장
+21,basement,지하실
+22,basilica,바실리카
+23,bayou,늪지
+24,beauty_salon,미용실
+25,bedroom,침실
+26,billiard_hall,당구장
+27,boardwalk,보드워크
+28,boat_deck,갑판
+29,bookstore,서점
+30,botanical_garden,식물원
+31,bowling_alley,볼링장
+32,boxing_ring,복싱장
+33,bridge,다리
+34,building_facade,건물 외부
+35,bus_interior,버스 내부
+36,butchers_shop,정육점
+37,butte,뷰트
+38,cafeteria,카페테리아
+39,campsite,캠핑장
+40,candy_store,과자점
+41,canyon,협곡
+42,cart_bar,포장마차
+43,castle,성
+44,cathedral_outdoor,대성당 외부
+45,cemetery,묘지
+46,chalet,오두막
+47,charnel_house,납골당
+48,church_outdoor,교회 외부
+49,classroom,교실
+50,closet,옷장
+51,clothing_store,옷가게
+52,coast,해변
+53,cockpit,조종석
+54,coffee_shop,커피숍
+55,conference_center,회의장
+56,conference_room,회의실
+57,construction_site,건설장소
+58,convenience_store,편의점
+59,corn_field,옥수수밭
+60,corridor,복도
+61,cottage_garden,시골정원
+62,courthouse,법원
+63,courtyard,뜰
+64,creek,개울
+65,crevasse,크레바스
+66,crosswalk,횡단보도
+67,dam,댐
+68,desert_sand,사막모래
+69,desert_vegetation,사막 식생
+70,dinette_home,주택
+71,dining_room,식당
+72,dock,부두
+73,doorway_outdoor,외부 출입문
+74,dorm_room,기숙사
+75,driveway,차도
+76,engine_room,기계실
+77,excavation,발굴현장
+78,fairway,페어웨이
+79,field_cultivated,경작지
+80,field_wild,들판
+81,fire_escape,비상계단
+82,fire_station,소방서
+83,fish_market,수산시장
+84,food_court,푸드코트
+85,forest_path,오솔길
+86,forest_road,숲길
+87,formal_garden,정원
+88,fountain,분수
+89,galley,기내 주방
+90,game_room,게임방
+91,garbage_dump,쓰레기 처리장
+92,gas_station,주유소
+93,gift_shop,선물가게
+94,golf_course,골프장
+95,harbor,항구
+96,herb_garden,허브농원
+97,highway,고속도로
+98,home_office,재택 근무지
+99,hospital,병원
+100,hospital_room,병실
+101,hot_spring,온천
+102,hotel_outdoor,호텔 외부
+103,hotel_room,호텔 방
+104,ice_cream_parlor,아이스크림 가게
+105,ice_skating_rink_outdoor,아이스링크장 외부
+106,iceberg,빙하
+107,igloo,이글루
+108,inn_outdoor,여인숙 외부
+109,islet,작은섬
+110,jail_cell,감옥
+111,jjimjilbang,찜질방
+112,kasbah,북아메리카 성
+113,kindergarden_classroom,어린이집
+114,kitchen,부엌
+115,kitchenette,작은 부엌
+116,korea_apartment,한국 아파트
+117,korea_cemetry,한국 묘지
+118,korea_style_house,한국 전통 가옥
+119,laundromat,세탁소
+120,lighthouse,등대
+121,living_room,거실
+122,lobby,로비
+123,locker_room,라커룸
+124,mansion,대저택
+125,market_outdoor,시장
+126,marsh,습지
+127,martial_arts_gym,무술 체육관
+128,mausoleum,묘
+129,medina,메디나
+130,monastery_outdoor,수도원 외부
+131,motel,모텔
+132,mountain,산
+133,mountain_snowy,눈산
+134,museum_indoor,박물관 내부
+135,music_studio,음악실
+136,nursery,유아원
+137,ocean,대양
+138,office,사무실
+139,office_building,사무실 건물
+140,orchard,과수원
+141,pagoda,파고다
+142,palace,궁전
+143,palace_bedroom,궁전 침실
+144,pantry,식료품 저장소
+145,parking_lot,주차장
+146,parlor,응접실
+147,pasture,초원
+148,patio,안마당
+149,pavilion,정자
+150,pc_room,피씨방
+151,phone_booth,공중전화
+152,picnic_area,소풍 구역
+153,playground,놀이터
+154,plaza,광장
+155,pond,연못
+156,pulpit,강단
+157,racecourse,경마장
+158,raft,레프트
+159,railroad_track,철로
+160,rainforest,우림
+161,reception,접수처
+162,residential_neighborhood,주택가
+163,restaurant,식당
+164,restaurant_kitchen,직당 주방
+165,restaurant_patio,식당 마당
+166,rice_paddy,논
+167,river,강
+168,rock_arch,아치형 바위
+169,rope_bridge,줄다리
+170,ruin,폐허
+171,runway,활주로
+172,sandbar,모래톱
+173,school,학교
+174,schoolhouse,교사
+175,sea_cliff,바다 절벽
+176,sendentary_restaurant,좌식 식당
+177,shed,헛간
+178,shoe_shop,신발가게
+179,shopfront,가게입구
+180,shower,화장실
+181,singing_room,노래방
+182,ski_resort,스키 리조트
+183,ski_slope,스키 슬로프
+184,sky,하늘
+185,skyscraper,고층 건물
+186,slum,빈민가
+187,snowfield,눈벌판
+188,stadium_baseball,야구장
+189,stadium_football,축구장
+190,stage_indoor,실내 무대
+191,staircase,계단
+192,steakhouse,고기집
+193,subway_station_platform,지하철 역 플랫폼
+194,supermarket,슈퍼마켓
+195,swamp,습지
+196,swimming_pool_outdoor,야외 수영장
+197,television_studio,텔레비전 스튜디오
+198,temple_east_asia,서아시아 신전
+199,temple_south_asia,남아시아 신전
+200,topiary_garden,장식용 정원
+201,tower,탑
+202,track_outdoor,야외 트랙
+203,train_railway,기차 선로
+204,train_station_platform,기차 역 플랫폼
+205,tree_farm,나무 농장
+206,trench,참호
+207,underground_parking_lot,지하 주차장
+208,underwater_coral_reef,수중 산호초
+209,valley,계곡
+210,vegetable_garden,채소밭
+211,veranda,베란다
+212,viaduct,구름다리
+213,volcano,화산
+214,waiting_room,대기실
+215,water_tower,급수탑
+216,watering_hole,물 웅덩이
+217,wheat_field,밀밭
+218,wind_farm,풍력 발전 지역
+219,windmill,풍차
+220,yard,마당
