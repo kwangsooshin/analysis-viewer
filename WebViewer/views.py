@@ -3,13 +3,15 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from .forms import UploadFileForm, ImageFileUploadForm
 from .models import ImageModel
-from utils import json_req, image_process
+from django.db.models import F
+from Module_Manager.models import Modules
+from utils import get_names, image_process
 from utils.convert import cvtReqbody2Json, string2json
 import json
 import ast
 
-#names = json_req.read_modules()
-names = ['1','2']
+# names = get_names.read_modules()
+names = get_names.read_modules_model()
 
 @csrf_protect
 @csrf_exempt
@@ -20,14 +22,19 @@ def home_view(request):
 
 	if request.method == 'POST':
 		try:
-			json_str = (request.body).decode('utf-8')
-			json_data = cvtReqbody2Json(json_str)
-			if json_data['id'] == "init":
-				model_names = []
-				for name in names:
-					mname = name.replace(".", "_")
-					model_names.append(mname)
-				return HttpResponse(json.dumps({'names': model_names}), 'application/json')
+			# json_str = (request.body).decode('utf-8')
+			# json_data = cvtReqbody2Json(json_str)
+			# if json_data['id'] == "init":
+			# 	model_names = []
+			# 	for name in names:
+			# 		mname = name.replace(".", "_")
+			# 		model_names.append(mname)
+			# 	return HttpResponse(json.dumps({'names': model_names}), 'application/json')
+			model_names = []
+			for n, k in names.items():
+				model_names.append(k)
+			return HttpResponse(json.dumps({'names': model_names}), 'application/json')
+
 		except:
 			if form.is_valid():
 				input = ImageModel()
