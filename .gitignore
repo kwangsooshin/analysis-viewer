@@ -1,0 +1,6 @@
+.idea/*
+venv/*
+*.pyc
+media/picture/*
+Module_Manager/migrations/*
+Image_Uploader/migrations/*
