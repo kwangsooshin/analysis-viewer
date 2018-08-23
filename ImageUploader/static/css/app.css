@@ -51,26 +51,90 @@ h6 {
 .row {
   padding-left: 30px;
   padding-right: 30px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 30px;
+    padding-bottom: 25px;
+  /*margin-left: 0px;*/
+  /*margin-right: 0px;*/
+  /*margin-top: 30px;*/
+}
+
+.upload_menu_title{
+    padding-bottom: 25px;
 }
 
 #file-upload {
   text-align: center;
 }
 
-#checkboxx{
-    padding-bottom: 30px;
+#form_field{
+    padding-bottom: 25px;
 }
 
 .upload_box{
     position: absolute; left: 50%; transform: translateX(-50%);
-
+    padding-top: 25px;
+    padding-bottom: 30px;
 }
 
-#image_size{
+#image_size_field{
     padding-bottom: 15px;
 }
 
+#image_row{
+    padding-bottom: 25px;
+}
 
+#module_name{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#first_ranking{
+    font-weight: bold;
+}
+
+#other_ranking{
+    font-weight: normal;
+}
+
+#label_Field{
+    padding-top: 10px
+}
+
+#result_detail_field{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+.one{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#cropping_image{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#element_field{
+    padding-top: 10px
+}
+
+#one{
+     padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#image_upload{
+    padding-bottom: 100px;
+}
+
+hr.three_1{
+    height: 50px;
+    width: 0px;
+    border-right: 0px;
+}

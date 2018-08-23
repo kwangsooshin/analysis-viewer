@@ -17,4 +17,4 @@ class UserlistForm(forms.Form):
 class ImageFileUploadForm(forms.ModelForm):
     class Meta:
         model = Input
-        fields = ('photo', 'checkbox', )
+        fields = ('photo', 'checkbox', 'threshold',)

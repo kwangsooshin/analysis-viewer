@@ -39,7 +39,6 @@ class ResultModel(models.Model):
 
 	def save(self, *args, **kwargs):
 		super(ResultModel, self).save(*args, **kwargs)
-		print(self.values)
 		json_data = ast.literal_eval(self.values)
 		self.module_name = json_data['module_name']
 		for module_results in json_data['module_result']:

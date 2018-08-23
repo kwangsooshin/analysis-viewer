@@ -12,6 +12,7 @@ function create_row(root, id, style) {
 
     return row
 }
+
 function create_column(root, cls, id, style) {
     var column = root.append('div')
         .attr("class", cls)
@@ -31,7 +32,9 @@ function create_title(root, cls, id, style, text, tag){
 }
 
 function create_checkbox_field(root, id) {
-    var checkbox_field = root.append("div").attr("id", "checkboxx")
+    var checkbox_field = root.append("div").attr("id", "form_field") // check box 영역 생성
+    checkbox_field .append("label").attr("for", "checkboxx").text("modules: ")
+
     return checkbox_field
 }
 
@@ -43,6 +46,25 @@ function create_checkbox(root, id, name) {
     chkbox.append("label")
         .attr("for", id)
         .text(name)
+}
+
+function create_selectbox_field(root) {
+    var selbox = root.append("div").attr("id","form_field") // select box 영역 생성
+    // https://bootsnipp.com/snippets/oVZ0B
+    selbox.append("label").attr("for","threshold").text("score threshold: ")
+
+    var element = selbox.append("select").attr("class", "form-control").attr("id","threshold")
+    element.append("option").attr("value",0.0).attr("selected", "selected").text("0.0 이상")
+    element.append("option").attr("value",0.1).text("0.1 이상")
+    element.append("option").attr("value",0.2).text("0.2 이상")
+    element.append("option").attr("value",0.3).text("0.3 이상")
+    element.append("option").attr("value",0.4).text("0.4 이상")
+    element.append("option").attr("value",0.5).text("0.5 이상")
+    element.append("option").attr("value",0.6).text("0.6 이상")
+    element.append("option").attr("value",0.7).text("0.7 이상")
+    element.append("option").attr("value",0.8).text("0.8 이상")
+    element.append("option").attr("value",0.9).text("0.9 이상")
+    return element
 }
 
 function create_button(root, type, cls, id, name) {
@@ -58,18 +80,26 @@ function create_form(root, enctype, id, method) {
         .attr("id", id)
         .attr("method", method)
         .attr("novalidate"," ")
-    form.append("div").append("input")
-        .attr("type", "file")
-        .attr("placeholder", "Photo")
-        .attr("name", 'photo')
 
     return form
 }
 
-function create_imageArea(root, img_id) {
+function create_file_form(root) {
+    var form = root.append("div").attr("id","form_field") // file form 영역 생성
+    form.append("label").attr("for", "ImageUpload").text("Image: ")
+    form.append("div").append("input")
+        .attr("type", "file")
+        .attr("placeholder", "Photo")
+        .attr("name", 'photo')
+        .attr("id","ImageUpload")
+
+    return form
+}
+
+function create_imageArea(root, img, img_id) {
     root.append("img")
-        .attr("src", "/media/boxing/img_boxing_" + String(img_id) + '.png')
-        .attr("id","image")
+        .attr("src", img)
+        .attr("id",img_id)
 }
 
 function create_descriptionRow(root, title, desc) {
@@ -80,9 +110,9 @@ function create_descriptionRow(root, title, desc) {
     col_desc.append("span").attr("class", "desc").attr("id", "_desc").text(desc)
 }
 
-function create_InitialDescArea(root, id) {
-    var description = root.append("div").attr("id", id)
-        .append("h4")
+function create_InitialDescArea(root, id, cls) {
+    var description = root.append("div").attr("id", id).attr("class",cls)
+        // .append("h4")
     return description
 }
 
@@ -96,18 +126,20 @@ function create_loading_gif_image(root, src){
     loading.append("img").attr("src", src)
 }
 
-function create_hr_tag(root) {
-    var line = root.append("hr").attr("width", "50%").attr("align","left")
-}
+// function create_hr_tag(root) {
+//     console.log("test")
+//     var line = root.append("div")
+//     line.append("hr").attr("width", "50%").attr("align","left")
+// }
 
-function print_desc(root, title, desc) {
-    var ImageSize= root.append("div").text(title+desc)
-}
+// function print_desc(root, title, desc) {
+//     var ImageSize= root.append("div").text(title+desc)
+// }
 
-function print_module_name(root, name){
-    var temp = root.append("div")
-        .append("h5").text(name)
-}
+// function print_module_name(root, name){
+//     var temp = root.append("div")
+//         .append("h5").text(name)
+// }
 
 function create_real_result(root){
     var temp = root.append("div")
@@ -115,4 +147,19 @@ function create_real_result(root){
         .append("li")
 
     return temp
+}
+
+function print_desc(root, text, id, cls){
+    var temp = root.append("div").attr("id", id).attr("class",cls).text(text)
+}
+
+function add_hr_tag(root,cls){
+    var hr = root.append("div").attr("class","row").attr("id", "one")
+    hr.append("hr").attr("class", cls)
+}
+
+function canvas_create(root, id, width, height){
+    var temp = root.append("div").attr("class","row")
+    root.append("canvas").attr("id", "image_"+id).attr("width",width).attr("height", height)
+    // root.append("img").attr("id", id)
 }
