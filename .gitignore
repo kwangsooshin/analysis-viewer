@@ -1,6 +1,8 @@
 .idea/*
 venv/*
 *.pyc
-media/picture/*
+media/pictures/*
 Module_Manager/migrations/*
-Image_Uploader/migrations/*
+ImageUploader/migrations/*
+media/boxing/*
+db.sqlite3
