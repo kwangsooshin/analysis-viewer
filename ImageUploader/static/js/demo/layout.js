@@ -158,8 +158,7 @@ function add_hr_tag(root,cls){
     hr.append("hr").attr("class", cls)
 }
 
-function canvas_create(root, id, width, height){
-    var temp = root.append("div").attr("class","row")
-    root.append("canvas").attr("id", "image_"+id).attr("width",width).attr("height", height)
-    // root.append("img").attr("id", id)
+function create_canvasTag(root, id, width, height, style){
+    var temp = root.append("div")
+    temp.append("canvas").attr("id", id).attr("width",width).attr("height",height).attr("style",style)
 }

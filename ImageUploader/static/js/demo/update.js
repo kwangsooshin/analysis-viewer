@@ -59,6 +59,15 @@ $('#form_upload').submit(function(e){
                 var image_field = create_InitialDescArea(imageField, "image_field")
                 create_imageArea(image_field, img_src, response['img_id'])
 
+                // var canvas_field = create_InitialDescArea(imageField, "canvas_field")
+                var image_size = resize_image(response['width'], response['height'], 700, 720, "")
+                console.log(image_size.rate)
+                console.log(image_size.rewidth)
+                console.log(image_size.reheight)
+
+                create_canvasTag(imageField, "myCanvas", image_size.rewidth, image_size.reheight)
+                drawImage(response['image'],image_size.rate, response['results']);
+
                 // 2. 이미지 사이즈 출력
                 var desc_imagesize_Field = create_InitialDescArea(descField, "image_size_field")
                 print_desc(desc_imagesize_Field, "Image size: "+String(response['width'])+" * "+String(response['height']), "")
