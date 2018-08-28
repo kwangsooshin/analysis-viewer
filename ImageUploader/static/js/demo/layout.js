@@ -162,3 +162,18 @@ function create_canvasTag(root, id, width, height, style){
     var temp = root.append("div")
     temp.append("canvas").attr("id", id).attr("width",width).attr("height",height).attr("style",style)
 }
+
+function create_tab (root){
+    var temp = root.append("div").attr("class", "panel with-nav-tabs panel-default").attr("id", "tab_field")
+    return temp
+}
+
+function create_tab_detail(root, cls, id){
+    var temp = root.append("div").attr("class",cls).attr("id",id)
+    return temp
+}
+
+function create_tab_title (root, id, text){
+    var temp = root.append("li")
+    temp.append("a").attr("href", id).attr("data-toggle", "tab").text(text)
+}
