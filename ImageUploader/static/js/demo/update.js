@@ -65,7 +65,7 @@ $('#form_upload').submit(function(e){
                 // console.log(image_size.rewidth)
                 // console.log(image_size.reheight)
                 create_canvasTag(imageField, "myCanvas", image_size.rewidth, image_size.reheight)
-                drawImage(response['image'],image_size.rate, response['results']);
+                drawImage(response['image'],image_size.rate, response['results'], response['color']);
 
                 // 2. 이미지 사이즈 출력
                 var desc_imagesize_Field = create_InitialDescArea(descField, "image_size_field")
@@ -132,6 +132,9 @@ $('#form_upload').submit(function(e){
 
                 var cnt = 0
                 for (var key in response['results']){
+                    // 모듈별 색상
+                    var color = response['color'][cnt]
+
                     // 1) 모듈 이름 출력
                     var id = "tab" + String(cnt) + "default"
                     create_tab_title(desc_tabheading_detail, "#"+id, String(key))
@@ -162,6 +165,9 @@ $('#form_upload').submit(function(e){
                     else {
                         console.log("face")
                         var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        var elements = create_InitialDescArea(temp, "element_field", "row")
+                        printcolor(elements, color, color)
+
                         cnt2= 0
                         for (var labels in response['results'][key]){
                             var elements = create_InitialDescArea(temp, "element_field", "row")
@@ -190,7 +196,6 @@ $('#form_upload').submit(function(e){
                             }
                             cnt2 +=1
 
-                            console.log (response['results'][key].length)
                             if (response['results'][key].length != cnt2)
                                 add_hr_tag(temp, "one")
                         }

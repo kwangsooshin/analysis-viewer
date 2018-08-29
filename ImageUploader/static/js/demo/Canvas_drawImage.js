@@ -1,8 +1,7 @@
-function drawImage(url, rate, results) {
+function drawImage(url, rate, results, color) {
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
     var image = new Image();
-    console.log(url)
     image.src = 'media/' + url
 
     var canvas2 = document.getElementById('myCanvas');
@@ -18,6 +17,7 @@ function drawImage(url, rate, results) {
         // context2.strokeStyle = 'black';
         // context2.stroke();
 
+        var cnt = 0
         for (var key in results){
             // 2-0) 아무런 결과가 없을 시 No result 출력
             if (results[key] == "No results"){
@@ -37,10 +37,11 @@ function drawImage(url, rate, results) {
                     context2.beginPath();
                     context2.rect(x*rate, y*rate, w*rate, h*rate);
                     context2.lineWidth = 3;
-                    context2.strokeStyle = "#b3b2b4";
+                    context2.strokeStyle = color[cnt];
                     context2.stroke();
                 }
             }
+            cnt+=1
         }
     }
 }

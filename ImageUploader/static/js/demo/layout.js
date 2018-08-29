@@ -177,3 +177,8 @@ function create_tab_title (root, id, text){
     var temp = root.append("li")
     temp.append("a").attr("href", id).attr("data-toggle", "tab").text(text)
 }
+
+function printcolor(root, color, tx){
+    var text = root.append("div").text("Boundary box color: ")
+    text.append("span").attr("style", "color:"+color).text(tx)
+}

@@ -37,6 +37,7 @@ def json2format(string, thr):
 	json_data = ast.literal_eval(string)
 	module_names = []
 	final_result = {}
+	modules_color = []
 
 	id_list = Modules.objects.values_list('module_name', 'id')
 
@@ -46,6 +47,7 @@ def json2format(string, thr):
 
 		try:
 			module_names.append(Modules.objects.get(module_name = modules['module_name']).module_korname)
+			modules_color.append(Modules.objects.get(module_name = modules['module_name']).Color)
 		except: # IGNORE
 			final_result[modules['module_name']] = 'Error'
 			return final_result
@@ -88,4 +90,4 @@ def json2format(string, thr):
 	# print(final_result)
 
 
-	return final_result
+	return final_result, modules_color

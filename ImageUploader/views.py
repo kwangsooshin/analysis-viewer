@@ -58,7 +58,7 @@ def home_view(request):
 				input.image_module = module_str
 				input.threshold = threshold
 				input.save()
-				Results = json2format(input.test, input.threshold) # threshold로 거른 결과값 저장
+				Results, modules_color = json2format(input.test, input.threshold) # threshold로 거른 결과값 저장
 				json_data = ast.literal_eval(input.test)
 				# boxed_img_url = image_process.object_boxing("D:/AnalysisViewer/" + input.get_absolute_image_url, Results, input.id) # 수정필요 (상대주소로)
 				# print(boxed_img_url)
@@ -71,6 +71,7 @@ def home_view(request):
 					'json_data' : json_data,
 					'img_id' : input.id,
 					'results' : Results,
+					'color': modules_color,
 				})
 			else:
 				print(form.errors)
