@@ -7,9 +7,10 @@ import ast
 class Modules (models.Model):
 	module_name = models.TextField(blank=True)
 	module_korname = models.TextField(blank=True)  # 한글
-	# csv_file = models.FileField(upload_to='/modules/csv')
 	csv_file = models.TextField(blank=True, default="None") # 파일 path 저장
 	url = models.URLField(default='')
+	Color = models.TextField(blank=True)
+	cropping = models.BooleanField(default=False)
 
 	def save(self, *args, **kwargs):
 		super(Modules, self).save(*args, **kwargs)

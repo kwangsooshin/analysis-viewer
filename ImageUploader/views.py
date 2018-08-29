@@ -30,7 +30,8 @@ def home_view(request):
 				n = n.replace(".", "_")
 				module_changedname.append(n)
 			# print("언더바로 바꾼 이름들: " + str(module_changedname))
-			# print("읽어온 모듈 이름들: " + str(module_kornames))
+			# print("읽어온 모듈 이름들: " + str(module_kor
+			# names))
 
 			# 모듈이름을 서버에서 가져옴
 			json_str = (request.body).decode('utf-8')
@@ -60,9 +61,9 @@ def home_view(request):
 				input.image_module = module_str
 				input.threshold = threshold
 				input.save()
-				Results = json2format(input.test, input.threshold)
+				Results = json2format(input.test, input.threshold) # threshold로 거른 결과값 저장
 				json_data = ast.literal_eval(input.test)
-				boxed_img_url = image_process.object_boxing("D:/AnalysisViewer/" + input.get_absolute_image_url, Results, input.id) # 수정필요 (상대주소로)
+				# boxed_img_url = image_process.object_boxing("D:/AnalysisViewer/" + input.get_absolute_image_url, Results, input.id) # 수정필요 (상대주소로)
 				# print(boxed_img_url)
 				return JsonResponse({
 					'error': False,

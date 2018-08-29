@@ -14,7 +14,10 @@ def communicatior(url, image_path, modules=None):
 	result_response = requests.post(url=url, data=json_data, files=json_files)
 	result_data = json.loads(result_response.content)
 
-	result = result_data['results']
+	try:
+		result = result_data['results']
+	except:
+		result = [{'module_name': 'Error', 'module_result': [{'position': {'y': 0.0, 'h': 0.0, 'w': 0.0, 'x': 0.0}, 'label': [{'score': 'ㅠ.ㅠ', 'description': 'Please contact admin'}]}]}]
 
 	json_image.close()
 

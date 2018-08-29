@@ -47,7 +47,6 @@ $('#form_upload').submit(function(e){
                 })
             }
             else{
-                console.log(response['image'])
                 // $('#image_field').remove();
                 $('#myCanvas').remove();
                 $('#image_size_field').remove();
@@ -124,7 +123,7 @@ $('#form_upload').submit(function(e){
                 //     add_hr_tag(desc_result_Field, "one") // http://aboooks.tistory.com/256
                 // }
 
-                // 결과 부분 tab 구현
+                // 결과 부분 tab 구현 https://bootsnipp.com/snippets/featured/panels-with-nav-tabs
                 var desc_tab = create_tab(descField)
                 var desc_tabheading = create_tab_detail(desc_tab, "panel-heading")
                 var desc_tabheading_detail = desc_tabheading.append("ul").attr("class", "nav nav-tabs")

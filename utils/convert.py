@@ -38,10 +38,21 @@ def json2format(string, thr):
 	module_names = []
 	final_result = {}
 
+	id_list = Modules.objects.values_list('module_name', 'id')
+
 	for modules in json_data:
 		module_results = []
-		# print(Modules.objects.get(module_name = modules['module_name']).module_korname)
-		module_names.append(Modules.objects.get(module_name = modules['module_name']).module_korname)
+		id = 0
+
+		try:
+			module_names.append(Modules.objects.get(module_name = modules['module_name']).module_korname)
+		except: # IGNORE
+			final_result[modules['module_name']] = 'Error'
+			return final_result
+
+		for i in id_list:
+			if (i[0] == modules['module_name']):
+				id = i[1]
 
 		for results in modules['module_result']:
 			checked = False
@@ -59,8 +70,7 @@ def json2format(string, thr):
 				if (temp_int >= thr):
 					checked = True
 					try:
-						# print(EngtoKor_list.objects.get(Eng_name=str(labels['description'])).Kor_name)
-						temp_desc = EngtoKor_list.objects.get(Eng_name=str(labels['description'])).Kor_name
+						temp_desc = EngtoKor_list.objects.get(Eng_name=str(labels['description']), Modules_model=id).Kor_name
 					except:
 						labels['description'] = labels['description'].replace("_", " ")
 						temp_desc = str(labels['description'])

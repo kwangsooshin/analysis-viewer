@@ -67,7 +67,7 @@
 66,crosswalk,횡단보도
 67,dam,댐
 68,desert_sand,사막모래
-69,desert_vegetation,사막 식생
+69,desert_vegetation,사막 식물
 70,dinette_home,주택
 71,dining_room,식당
 72,dock,부두
@@ -154,15 +154,15 @@
 153,playground,놀이터
 154,plaza,광장
 155,pond,연못
-156,pulpit,강단
+156,pulpit,설교단
 157,racecourse,경마장
 158,raft,레프트
 159,railroad_track,철로
 160,rainforest,우림
 161,reception,접수처
 162,residential_neighborhood,주택가
-163,restaurant,식당
-164,restaurant_kitchen,직당 주방
+163,restaurant,레스토랑
+164,restaurant_kitchen,식당 주방
 165,restaurant_patio,식당 마당
 166,rice_paddy,논
 167,river,강
@@ -193,7 +193,7 @@
 192,steakhouse,고기집
 193,subway_station_platform,지하철 역 플랫폼
 194,supermarket,슈퍼마켓
-195,swamp,습지
+195,swamp,늪
 196,swimming_pool_outdoor,야외 수영장
 197,television_studio,텔레비전 스튜디오
 198,temple_east_asia,서아시아 신전
