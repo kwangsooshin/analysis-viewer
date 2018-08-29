@@ -29,9 +29,6 @@ def home_view(request):
 				module_kornames.append(k)
 				n = n.replace(".", "_")
 				module_changedname.append(n)
-			# print("언더바로 바꾼 이름들: " + str(module_changedname))
-			# print("읽어온 모듈 이름들: " + str(module_kor
-			# names))
 
 			# 모듈이름을 서버에서 가져옴
 			json_str = (request.body).decode('utf-8')

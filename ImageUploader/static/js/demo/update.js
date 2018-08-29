@@ -145,30 +145,54 @@ $('#form_upload').submit(function(e){
                     else if (response['results'][key][0][0][0] == 0 && response['results'][key][0][0][1] == 0) {
                         console.log("place")
                         var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
-                        print_desc(temp, "1. " + response['results'][key][0][1], "first_ranking")
+                        var elements = create_InitialDescArea(temp, "element_field", "row")
+
+                        // 왼쪽 (이미지 전체 출력)
+                        var left_side = create_column(elements, "col-md-6 col-sm-6", "label_Field", "")
+                        var img_src = "media/" + response['image']
+                        create_imageArea(left_side, img_src, response['img_id'])
+                        // 오른쪽 (label 출력)
+                        var right_side = create_column(elements, "col-md-6 col-sm-6", "label_Field", "")
+                        print_desc(right_side, "1. " + response['results'][key][0][1], "first_ranking")
                         for (var i = 2; i < response['results'][key][0].length; i++) {
-                            print_desc(temp, String(i) + ". " + response['results'][key][0][i], "other_ranking")
+                            print_desc(right_side, String(i) + ". " + response['results'][key][0][i], "other_ranking")
                         }
                     }
                     // 2-2) Face: 왼쪽은 cropping한 이미지, 오른쪽은 label 랭킹순으로 출력; 자바스크립트로 이미지 처리하는 방법 알아낸 뒤에 출력
                     else {
                         console.log("face")
                         var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        cnt2= 0
                         for (var labels in response['results'][key]){
                             var elements = create_InitialDescArea(temp, "element_field", "row")
+                            var x = response['results'][key][labels][0][0]
+                            var y = response['results'][key][labels][0][1]
+                            var w = response['results'][key][labels][0][2]
+                            var h = response['results'][key][labels][0][3]
 
-                            // 왼쪽
-                            var right_side = create_column(elements, "col-md-6 col-sm-6", "label_Field", "")
+                            // 왼쪽 (cropping 한 이미지 출력)
+                            var left_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
+                            var temp_image_size = resize_image(w, h, 140, 200)
+                            var cropping_id = "myCanvas_" + String(cnt) + "_" + String(cnt2)
+                            create_canvasTag(left_side, cropping_id, temp_image_size.rewidth, temp_image_size.reheight)
+                            cropping_image(response['image'], cropping_id, x, y, temp_image_size.rewidth, temp_image_size.reheight)
+                            // 가운데 (x, y, w, h 출력)
+                            var middle_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
+                            print_desc(middle_side, "x: " + response['results'][key][labels][0][0], "other_ranking")
+                            print_desc(middle_side, "y: " + response['results'][key][labels][0][1], "other_ranking")
+                            print_desc(middle_side, "w: " + response['results'][key][labels][0][2], "other_ranking")
+                            print_desc(middle_side, "h: " + response['results'][key][labels][0][3], "other_ranking")
+                            // 오른쪽 (label 출력)
+                            var right_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
                             print_desc(right_side, "1. " + response['results'][key][labels][1], "first_ranking")
                             for (var i = 2; i < response['results'][key][labels].length; i++) {
                                 print_desc(right_side, String(i) + ". " + response['results'][key][labels][i], "other_ranking")
                             }
-                            // 오른쪽
-                            var left_side = create_column(elements, "col-md-6 col-sm-6", "label_Field", "")
-                            print_desc(left_side, "x: " + response['results'][key][labels][0][0], "other_ranking")
-                            print_desc(left_side, "y: " + response['results'][key][labels][0][1], "other_ranking")
-                            print_desc(left_side, "w: " + response['results'][key][labels][0][2], "other_ranking")
-                            print_desc(left_side, "h: " + response['results'][key][labels][0][3], "other_ranking")
+                            cnt2 +=1
+
+                            console.log (response['results'][key].length)
+                            if (response['results'][key].length != cnt2)
+                                add_hr_tag(temp, "one")
                         }
                     }
                     cnt += 1
