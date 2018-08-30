@@ -173,8 +173,8 @@ function create_tab_detail(root, cls, id){
     return temp
 }
 
-function create_tab_title (root, id, text){
-    var temp = root.append("li")
+function create_tab_title (root, id, text, first){
+    var temp = root.append("li").attr("class",first)
     temp.append("a").attr("href", id).attr("data-toggle", "tab").text(text)
 }
 

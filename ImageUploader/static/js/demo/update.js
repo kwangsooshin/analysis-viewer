@@ -146,7 +146,10 @@ $('#form_upload').submit(function(e){
 
                     // 1) 모듈 이름 출력
                     var id = "tab" + String(cnt) + "default"
-                    create_tab_title(desc_tabheading_detail, "#"+id, String(key))
+                    if (cnt == 0)
+                        create_tab_title(desc_tabheading_detail, "#"+id, String(key),"active")
+                    else
+                        create_tab_title(desc_tabheading_detail, "#"+id, String(key))
 
                     // 2-0) 아무런 결과가 없을 시 No result 출력
                     if (response['results'][key] == "No results"){
@@ -156,7 +159,11 @@ $('#form_upload').submit(function(e){
                     // 2-1) Place: label 랭킹순으로 출력
                     else if (response['results'][key][0][0][0] == 0 && response['results'][key][0][0][1] == 0) {
                         console.log("place")
-                        var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        // var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        if (cnt == 0)
+                            var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade in active", id)
+                        else
+                            var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
                         var elements = create_InitialDescArea(temp, "element_field", "row")
 
                         // 왼쪽 (이미지 전체 출력)
@@ -179,7 +186,11 @@ $('#form_upload').submit(function(e){
                     // 2-2) Face: 왼쪽은 cropping한 이미지, 오른쪽은 label 랭킹순으로 출력; 자바스크립트로 이미지 처리하는 방법 알아낸 뒤에 출력
                     else {
                         console.log("face")
-                        var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        // var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
+                        if (cnt == 0)
+                            var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade in active", id)
+                        else
+                            var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
                         var elements = create_InitialDescArea(temp, "element_field", "row")
                         printcolor(desc_imagesize_Field, color, color, String(key))
 
