@@ -60,7 +60,13 @@ $('#form_upload').submit(function(e){
                 // var image_field = create_InitialDescArea(imageField, "image_field")
                 // create_imageArea(image_field, img_src, response['img_id'])
 
-                var image_size = resize_image(response['width'], response['height'], 700, 720, "") // 이미지 리사이징
+                if (window.innerWidth >= window.innerHeight){
+                    var image_size = resize_image(response['width'], response['height'], window.innerWidth/4, 720, "") // 이미지 리사이징
+                }
+                else{
+                    var image_size = resize_image(response['width'], response['height'], window.innerWidth*(3/4), 720, "") // 이미지 리사이징
+                }
+                // var image_size = resize_image(response['width'], response['height'], window.innerWidth/4, 720, "") // 이미지 리사이징
                 // console.log(image_size.rate)
                 // console.log(image_size.rewidth)
                 // console.log(image_size.reheight)
@@ -155,11 +161,17 @@ $('#form_upload').submit(function(e){
                         var img_src = "media/" + response['image']
                         create_imageArea(left_side, img_src, response['img_id'])
                         // 오른쪽 (label 출력)
-                        var right_side = create_column(elements, "col-md-6 col-sm-6", "label_Field", "")
-                        print_desc(right_side, "1. " + response['results'][key][0][1], "first_ranking")
+                        var arr;
+                        arr = [];
+                        var right_side = create_column(elements, "col-md-6 col-sm-6", "label_Field_place"+String(cnt), "")
+                        // print_desc(right_side, "1. " + response['results'][key][0][1][0] + " ("+response['results'][key][0][1][1] + ")", "first_ranking")
+                        arr.push({'name':response['results'][key][0][1][0] + " ("+response['results'][key][0][1][1] + ")", 'y':response['results'][key][0][1][1]})
                         for (var i = 2; i < response['results'][key][0].length; i++) {
-                            print_desc(right_side, String(i) + ". " + response['results'][key][0][i], "other_ranking")
+                            // print_desc(right_side, String(i) + ". " + response['results'][key][0][i][0] + " ("+response['results'][key][0][i][1] + ")", "other_ranking")
+                            arr.push({'name':response['results'][key][0][i][0] + " ("+response['results'][key][0][i][1] + ")", 'y':response['results'][key][0][i][1]})
                         }
+
+                        piechart("label_Field_place"+String(cnt), arr, '100%')
                     }
                     // 2-2) Face: 왼쪽은 cropping한 이미지, 오른쪽은 label 랭킹순으로 출력; 자바스크립트로 이미지 처리하는 방법 알아낸 뒤에 출력
                     else {
@@ -183,17 +195,22 @@ $('#form_upload').submit(function(e){
                             create_canvasTag(left_side, cropping_id, temp_image_size.rewidth, temp_image_size.reheight)
                             cropping_image(response['image'], cropping_id, x, y, temp_image_size.rewidth, temp_image_size.reheight)
                             // 가운데 (x, y, w, h 출력)
-                            var middle_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
+                            var middle_side = create_column(elements, "col-md-2 col-sm-2", "label_Field", "")
                             print_desc(middle_side, "x: " + response['results'][key][labels][0][0], "other_ranking")
                             print_desc(middle_side, "y: " + response['results'][key][labels][0][1], "other_ranking")
                             print_desc(middle_side, "w: " + response['results'][key][labels][0][2], "other_ranking")
                             print_desc(middle_side, "h: " + response['results'][key][labels][0][3], "other_ranking")
                             // 오른쪽 (label 출력)
-                            var right_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
-                            print_desc(right_side, "1. " + response['results'][key][labels][1], "first_ranking")
+                            var right_side = create_column(elements, "col-md-6 col-sm-6", "label_Field_face"+String(cnt)+String(cnt2), "")
+                            // print_desc(right_side, "1. " + response['results'][key][labels][1][0] + " ("+response['results'][key][labels][1][1] + ")", "first_ranking")
+                            var arr;
+                            arr = [];
+                            arr.push({'name':response['results'][key][labels][1][0] + " ("+response['results'][key][labels][1][1] + ")", 'y':response['results'][key][labels][1][1]})
                             for (var i = 2; i < response['results'][key][labels].length; i++) {
-                                print_desc(right_side, String(i) + ". " + response['results'][key][labels][i], "other_ranking")
+                                // print_desc(right_side, String(i) + ". " + response['results'][key][labels][i][0] + " ("+response['results'][key][labels][i][1] + ")", "other_ranking")
+                                arr.push({'name':response['results'][key][labels][i][0] + " ("+response['results'][key][labels][i][1] + ")", 'y': response['results'][key][labels][i][1]})
                             }
+                            piechart('label_Field_face'+String(cnt)+String(cnt2), arr, '100%')
                             cnt2 +=1
 
                             if (response['results'][key].length != cnt2)
