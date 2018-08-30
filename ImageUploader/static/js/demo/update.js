@@ -178,7 +178,7 @@ $('#form_upload').submit(function(e){
                         console.log("face")
                         var temp = create_tab_detail(desc_tabbody_detail, "tab-pane fade", id)
                         var elements = create_InitialDescArea(temp, "element_field", "row")
-                        printcolor(elements, color, color)
+                        printcolor(desc_imagesize_Field, color, color, String(key))
 
                         cnt2= 0
                         for (var labels in response['results'][key]){
