@@ -68,8 +68,30 @@ function resize_image(width, height, maxwidth, maxheight){
     }
 }
 
+function resize_image_bigger(width, height, minwidth, minheight){
+    var rate = 1
+    var rewidth  = width
+    var reheight = height
+    if (width < minwidth){
+        rewidth = minwidth
+        reheight = height * minwidth / width
+        rate = minwidth / width
+    }
+    else if (height < minheight){
+        reheight = minheight
+        rewidth = width * minheight / height
+        rate = minheight / height
+    }
+
+    return{
+        rate: rate,
+        reheight: reheight,
+        rewidth: rewidth,
+    }
+}
+
 // https://www.html5canvastutorials.com/tutorials/html5-canvas-image-crop/
-function cropping_image(url, id, x, y, w, h){
+function cropping_image(url, id, x, y, w, h, rewidth, reheight){
     var canvas = document.getElementById(id);
     var context = canvas.getContext('2d');
     var imageObj = new Image();
@@ -77,14 +99,23 @@ function cropping_image(url, id, x, y, w, h){
 
     imageObj.onload = function() {
         // draw cropped image
+        // var sourceX = x;
+        // var sourceY = y;
+        // var sourceWidth = w;
+        // var sourceHeight = h;
+        // var destWidth = sourceWidth;
+        // var destHeight = sourceHeight;
+        // var destX = canvas.width / 2 - destWidth / 2;
+        // var destY = canvas.height / 2 - destHeight / 2;
         var sourceX = x;
         var sourceY = y;
         var sourceWidth = w;
         var sourceHeight = h;
-        var destWidth = sourceWidth;
-        var destHeight = sourceHeight;
+        var destWidth = rewidth;
+        var destHeight = reheight;
         var destX = canvas.width / 2 - destWidth / 2;
         var destY = canvas.height / 2 - destHeight / 2;
+
 
         context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
     };

@@ -61,7 +61,10 @@ $('#form_upload').submit(function(e){
                 // create_imageArea(image_field, img_src, response['img_id'])
 
                 if (window.innerWidth >= window.innerHeight){
-                    var image_size = resize_image(response['width'], response['height'], window.innerWidth/4, 720, "") // 이미지 리사이징
+                    if (window.innerWidth > 1200)
+                        var image_size = resize_image(response['width'], response['height'], window.innerWidth/4, 720, "") // 이미지 리사이징
+                    else
+                        var image_size = resize_image(response['width'], response['height'], window.innerWidth/2, 720, "") // 이미지 리사이징
                 }
                 else{
                     var image_size = resize_image(response['width'], response['height'], window.innerWidth*(3/4), 720, "") // 이미지 리사이징
@@ -191,9 +194,10 @@ $('#form_upload').submit(function(e){
                             // 왼쪽 (cropping 한 이미지 출력)
                             var left_side = create_column(elements, "col-md-4 col-sm-4", "label_Field", "")
                             var temp_image_size = resize_image(w, h, 140, 200)
+                            var temp_image_size = resize_image_bigger(temp_image_size.rewidth, temp_image_size.reheight, 140, 100)
                             var cropping_id = "myCanvas_" + String(cnt) + "_" + String(cnt2)
                             create_canvasTag(left_side, cropping_id, temp_image_size.rewidth, temp_image_size.reheight)
-                            cropping_image(response['image'], cropping_id, x, y, temp_image_size.rewidth, temp_image_size.reheight)
+                            cropping_image(response['image'], cropping_id, x, y, w, h, temp_image_size.rewidth, temp_image_size.reheight)
                             // 가운데 (x, y, w, h 출력)
                             var middle_side = create_column(elements, "col-md-2 col-sm-2", "label_Field", "")
                             print_desc(middle_side, "x: " + response['results'][key][labels][0][0], "other_ranking")
