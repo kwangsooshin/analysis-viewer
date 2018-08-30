@@ -19,6 +19,7 @@ def home_view(request):
 	global DB_names
 	form = ImageFileUploadForm(request.POST, request.FILES)
 	module_str = ""
+	temp_module_str = ""
 
 	if request.method == 'POST' :
 		try:
@@ -53,6 +54,10 @@ def home_view(request):
 				for key, value in checkbox.items():
 					if value == True:
 						module_str = module_str+str(key)+','
+					temp_module_str = temp_module_str+str(key)+','
+				if module_str == "":
+					module_str = temp_module_str
+
 				module_str = module_str[0:-1]
 				module_str = module_str.replace("_",".")
 				input.image_module = module_str
