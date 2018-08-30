@@ -77,7 +77,7 @@ def json2format(string, thr):
 						labels['description'] = labels['description'].replace("_", " ")
 						temp_desc = str(labels['description'])
 					string += temp_desc + " ("+str(temp_int)+")"
-					label_list = (labels['description'], temp_int)
+					label_list = (temp_desc, temp_int)
 					temp_result.append(label_list)
 
 			if checked == True:

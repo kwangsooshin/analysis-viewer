@@ -7,6 +7,9 @@
     <script src="{% static "js/jquery-ui.min.js" %}"></script>
     <script src="{% static "js/d3.min.js" %}"></script>
     <script src="{% static "js/bootstrap-3.3.7.min.js" %}"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600i" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -29,6 +32,7 @@
 {% block content %}
     <div class="container" id="upload_contents"></div>
 
+    <script src="{% static "js/demo/graph.js" %}"></script>
     <script src="{% static "js/demo/layout.js" %}"></script>
     <script src="{% static "js/demo/upload_menu.js" %}"></script>
     <script src="{% static "js/demo/update.js" %}"></script>

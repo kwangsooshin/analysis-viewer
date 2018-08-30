@@ -1,7 +1,7 @@
 var upload_contents = create_layout("#upload_contents")
 var main_row = create_row(upload_contents, "demo", "margin-left: 0px; margin-right: 0px;")
 var upload_menu = create_column(main_row, "col-md-4 col-sm-6", "image_upload")
-create_title(upload_menu, "upload_menu_title", "upload_menu_title", "", "Upload your image to test and Choose modules")
+create_title(upload_menu, "upload_menu_title", "upload_menu_title", "", "Upload the image you want to test, select the module and the threshold, then press the 'Upload' button. (If you do not select a module, the results of all modules are output.)")
 
 var upload_row = create_row(upload_menu, "upload_row")
 var upload_form = create_form(upload_row, "multipart/form-data", "form_upload", "POST")
