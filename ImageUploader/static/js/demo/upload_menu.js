@@ -6,7 +6,7 @@ create_title(upload_menu, "upload_menu_title", "upload_menu_title", "", "Upload 
 var upload_row = create_row(upload_menu, "upload_row")
 var upload_form = create_form(upload_row, "multipart/form-data", "form_upload", "POST")
 
-var Image_form_field = create_file_form(upload_form, "multipart/form-data", "form_upload", "POST")
+var Image_form_field = create_file_form(upload_form)
 var checkbox_field = create_checkbox_field(upload_form, "checkbox")
 var selectbox_field = create_selectbox_field (upload_form)
 create_button(upload_form, "submit", "btn btn-default", "btn_upload", "Upload")
